@@ -13,8 +13,6 @@ Proyecto desarrollado con **Laravel y MySQL** para la gestión de líneas de pro
 
 El proyecto fue desarrollado utilizando **Visual Studio Code** como editor de código.
 
----
-
 ## Configuración del Proyecto
 
 Sigue los siguientes pasos para configurar y ejecutar el proyecto en tu entorno local.
@@ -83,4 +81,12 @@ Hacer **Ctrl + clic izquierdo** sobre esa dirección para abir el proyecto o cop
 Para moverse entre vistas:
 
 Hacer clic en "Lineas de producción", "Productos", etc en el encabezado para ver las distintas vistas.
+
+### Nota
+
+Si MySQL no permite conectarse desde MySQL Workbench, verifica que el servicio de MySQL esté en ejecución.
+
+En Windows puedes revisarlo en:
+
+Task Manager → Services → buscar **MySQL** → estado **Running**.
 
