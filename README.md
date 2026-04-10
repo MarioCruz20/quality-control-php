@@ -80,9 +80,7 @@ Después de ejecutar el comando anterior, la consola mostrará una dirección si
 
 Hacer **Ctrl + clic izquierdo** sobre esa dirección para abir el proyecto o copiar y pegar esa dirección en el navegador para abrirlo
 
-Para moverse entre vistas, en la direccion del navegador escribir:
+Para moverse entre vistas:
 
-**http://127.0.0.1:8000/home**
-
-Luego hacer clic en "Lineas de producción", "Productos", etc en el encabezado para ver las distintas vistas.
+Hacer clic en "Lineas de producción", "Productos", etc en el encabezado para ver las distintas vistas.
 
