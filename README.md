@@ -58,6 +58,8 @@ Ejecutar el comando para iniciar el servidor local de Laravel:
 
 ## 5. Abrir proyecto en el navegador
 Después de ejecutar el comando anterior, la consola mostrará una dirección similar a:
+
 **http://198.0.0.1:8000**
+
 Hacer **Ctrl + clic izquierdo** sobre esa dirección para abir el proyecto o copiar y pegar esa dirección en el navegador para abrirlo
 
