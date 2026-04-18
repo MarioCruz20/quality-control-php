@@ -13,7 +13,52 @@ Proyecto desarrollado con **Laravel y MySQL** para la gestión de líneas de pro
 
 El proyecto fue desarrollado utilizando **Visual Studio Code** como editor de código.
 
+## Requisitos previos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
+
+- PHP (versión 8.x o superior)
+- Composer
+- Node.js y npm (para Tailwind/Vite)
+- Git
+
 ---
+
+## Configuración de PHP en Variables de Entorno (Windows)
+
+1. Descargar PHP desde: https://windows.php.net/download/
+
+2. Extraer el contenido en una carpeta, por ejemplo:
+ ```
+  C:\php
+  ```
+
+3. Agregar PHP al PATH del sistema:
+- Buscar "Variables de entorno" en Windows
+- Editar la variable **Path**
+- Agregar la ruta:
+  ```
+  C:\php
+  ```
+
+4. Verificar instalación:
+```
+php -v
+```
+
+5. Instalación de Composer:
+- Descargar desde: https://getcomposer.org/download/
+  
+- Ejecutar el instalador (Composer-Setup.exe)
+  
+- Durante la instalación:
+  
+- Seleccionar la ruta de PHP (ejemplo: C:\php\php.exe)
+  
+- Verificar instalación:
+```
+composer -v
+```
 
 ## Configuración del Proyecto
 
@@ -67,11 +112,15 @@ Esto abrirá la consola directamente en la carpeta del proyecto.
 ## 3. Instalar las dependencias del proyecto
 
 En la consola ejecutar el siguiente comando:
-**composer install**
+```
+composer install
+```
 
 ## 4. Iniciar el servidor de desarrollo
 Ejecutar el comando para iniciar el servidor local de Laravel:
-**php artisan serve**
+```
+php artisan serve
+```
 
 ## 5. Abrir proyecto en el navegador
 Después de ejecutar el comando anterior, la consola mostrará una dirección similar a:
@@ -80,9 +129,15 @@ Después de ejecutar el comando anterior, la consola mostrará una dirección si
 
 Hacer **Ctrl + clic izquierdo** sobre esa dirección para abir el proyecto o copiar y pegar esa dirección en el navegador para abrirlo
 
-Para moverse entre vistas, en la direccion del navegador escribir:
+Para moverse entre vistas:
 
-**http://127.0.0.1:8000/home**
+Hacer clic en "Lineas de producción", "Productos", etc en el encabezado para ver las distintas vistas.
 
-Luego hacer clic en "Lineas de producción", "Productos", etc en el encabezado para ver las distintas vistas.
+### Nota
+
+Si MySQL no permite conectarse desde MySQL Workbench, verifica que el servicio de MySQL esté en ejecución.
+
+En Windows puedes revisarlo en:
+
+Task Manager → Services → buscar **MySQL** → estado **Running**.
 
