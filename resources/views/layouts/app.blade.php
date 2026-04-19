@@ -45,13 +45,10 @@
                         <a href="/products" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
                             Productos
                         </a>
-                        <a href="/quality_parameters" class="nav-link text-white">
+                        <a href="/quality_parameters" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
                             Parámetros de calidad
                         </a>
                         
-                        <a href="/products" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
-                            Productos
-                        </a>
                     </div>
                 </div>
 

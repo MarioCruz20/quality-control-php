@@ -38,7 +38,7 @@ Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('
 Route::delete('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 // Quality Parameters
-Route::get('/qualityparameters', [QualityParametersController::class, 'index'])->name('qualityparameters.index');
+Route::get('/quality_parameters', [QualityParametersController::class, 'index'])->name('quality_parameters.index');
 Route::get('/qualityparameters/create', [QualityParametersController::class, 'create'])->name('qualityparameters.create');
 Route::post('/qualityparameters/store', [QualityParametersController::class, 'store'])->name('qualityparameters.store');
 Route::get('/qualityparameters/edit/{id}', [QualityParametersController::class, 'edit'])->name('qualityparameters.edit');
