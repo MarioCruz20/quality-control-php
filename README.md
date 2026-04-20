@@ -2,6 +2,17 @@
 
 Proyecto desarrollado con **Laravel y MySQL** para la gestión de líneas de producción y productos en un sistema de control de calidad.
 
+# Descripción
+
+Sistema web de control de calidad desarrollado con Laravel que permite gestionar líneas de producción y productos.
+
+## Características principales
+
+- CRUD de líneas de producción y productos
+- Uso de arquitectura MVC
+- Migraciones y manejo de base de datos con Eloquent ORM
+- Validación de datos en formularios
+
 ## Herramientas utilizadas
 
 - PHP
