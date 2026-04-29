@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-       $this->call([
+        $this->call([
             ProductionLineSeeder::class
-       ]);
+        ]);
+
+        $this->call([
+            LotSeeder::class,
+        ]);
     }
 }

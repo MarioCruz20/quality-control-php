@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
 class Lot extends Model
 {
+
+    use HasFactory;
+
     protected $table = 'lot';
     protected $primaryKey = 'lot_id';
     public $timestamps = false;
