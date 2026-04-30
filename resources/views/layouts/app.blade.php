@@ -23,6 +23,13 @@
             }
         }
     </script>
+
+    <script defer src="https://unpkg.com/alpinejs"></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-sans antialiased text-gray-900 min-h-screen flex flex-col">
@@ -42,13 +49,58 @@
                         <a href="/production_line" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
                             Líneas de Producción
                         </a>
-                        <a href="/products" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
+                        <a href="/product" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
                             Productos
                         </a>
                         <a href="/quality_parameters" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition">
-                            Parámetros de calidad
+                            Parámetros de Calidad
                         </a>
-                        
+
+                        <a href="/lot" class="font-nav font-medium text-gray-300 hover:text-white px-3 py-2 roundedmd text-sm transition">
+                            Lotes de Producción
+                        </a>
+                        <!-- Menu con Lista Desplegable -->
+                        <div class="relative" x-data="{ open: false }" @click.outside="open = false">
+
+                            <button @click="open = !open"
+                                class="flex items-center font-nav font-medium text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm transition outline-none">
+
+                                <span>Análisis de Calidad</span>
+
+                                <svg class="ml-1 h-4 w-4 transition-transform"
+                                    :class="open ? 'rotate-180' : ''"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l7 7-7-7" />
+                                </svg>
+
+                            </button>
+
+                            <div x-show="open"
+                                x-cloak
+                                x-transition
+                                class="absolute left-0 mt-2 w-48 rounded-xl bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden">
+
+                                <div class="py-1">
+                                    <a href="/plan_produccion"
+                                        class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">
+                                        Plan de Producción
+                                    </a>
+
+                                    <a href=""
+                                        class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">
+                                        En Proceso
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
 
@@ -102,7 +154,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-black px-2 pt-2 pb-3 space-y-1">
             <a href="/production_line" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Líneas de Producción</a>
             <a href="/products" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Productos</a>
-            <a href="/quality_parameters" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Parámetros de Calidad</a>
+            <a href="/quality_parameter" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Parámetros de Calidad</a>
         </div>
     </nav>
 
@@ -115,7 +167,7 @@
 
     <footer class="bg-white border-t border-gray-200 py-6">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
-            &copy; 2026 ITCA-GROUP. Todos los derechos reservados.
+            &copy; Quality Control. Todos los derechos reservados.
         </div>
     </footer>
 
@@ -160,6 +212,57 @@
         </div>
         @endif
     </div>
+
+    <!-- TOAST PARA LLAMARLOS DESDE JAVASCRIPT -->
+
+    <div id="toast-errorJS"
+        class="hidden pointer-events-auto bg-white border-l-4 border-red-500 shadow-2xl rounded-xl p-4 w-80 md:w-96 flex items-center space-x-4 transform transition-all duration-500 animate-slide-in">
+
+        <div class="flex-shrink-0 bg-red-100 p-2 rounded-full">
+            <svg class="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+        </div>
+
+        <div class="flex-grow">
+            <p class="font-nav text-sm font-bold text-gray-800">Error generado</p>
+            <p id="toastErrorMsg" class="font-sans text-xs text-gray-500">No definido</p>
+        </div>
+
+        <button onclick="closeToast('toast-errorJS')"
+            class="text-gray-400 hover:text-gray-600 transition-colors">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
+            </svg>
+        </button>
+
+    </div>
+
+
+    <div id="toast-successJS"
+        class="hidden pointer-events-auto bg-white border-l-4 border-green-500 shadow-2xl rounded-xl p-4 w-80 md:w-96 flex items-center space-x-4 transform transition-all duration-500 animate-slide-in">
+
+        <div class="flex-shrink-0 bg-green-100 p-2 rounded-full">
+            <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+
+        <div class="flex-grow">
+            <p class="font-nav text-sm font-bold text-gray-800">Información</p>
+            <p id="toastSuccesMsg" class="font-sans text-xs text-gray-500">No definido</p>
+        </div>
+
+        <button onclick="closeToast('toast-successJS')"
+            class="text-gray-400 hover:text-gray-600 transition-colors">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
+            </svg>
+        </button>
+    </div>
+
 
     <style>
         @keyframes slide-in {
