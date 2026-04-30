@@ -11,22 +11,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lot extends Model
 {
-
     use HasFactory;
 
     protected $table = 'lot';
     protected $primaryKey = 'lot_id';
     public $timestamps = false;
+
     protected $fillable = [
-        'created', 
-        'createdby', 
-        'updated', 
-        'updatedby', 
-        'isactive', 
-        'name', 
-        'production_date', 
-        'analysis_date', 
+        'created',
+        'createdby',
+        'updated',
+        'updatedby',
+        'isactive',
+        'name',
+        'production_date',
+        'analysis_date',
         'product_id'
+    ];
+
+    protected $casts = [
+        'analysis_date' => 'datetime',
+        'production_date' => 'datetime',
+        'created' => 'datetime',
+        'updated' => 'datetime',
     ];
 
     /**
@@ -34,8 +41,9 @@ class Lot extends Model
      *
      * @return BelongsTo - registro de producto
      */
-    public function product(): BelongsTo {
-        return $this->belongsTo(Product::class,'product_id', 'product_id');
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'product_id');
     }
 
     /**
@@ -43,7 +51,8 @@ class Lot extends Model
      *
      * @return HasOne - lote analizado
      */
-    function batchAnalysis() : HasOne {
-        return $this->hasOne(BatchAnalysis::class,'lot_id', 'lot_id');
+    function batchAnalysis(): HasOne
+    {
+        return $this->hasOne(BatchAnalysis::class, 'lot_id', 'lot_id');
     }
 }
