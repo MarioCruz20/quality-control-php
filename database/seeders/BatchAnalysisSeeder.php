@@ -7,11 +7,8 @@ use Illuminate\Database\Seeder;
 
 class BatchAnalysisSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        \App\Models\BatchAnalysis::factory(10)->create();
     }
 }

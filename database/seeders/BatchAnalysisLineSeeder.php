@@ -12,6 +12,6 @@ class BatchAnalysisLineSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\BatchAnalysisLine::factory(10)->create();
     }
 }

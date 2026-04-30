@@ -12,6 +12,6 @@ class BatchAnalysisStateSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\BatchAnalysisState::factory(10)->create();
     }
 }

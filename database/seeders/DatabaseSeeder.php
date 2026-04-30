@@ -2,21 +2,20 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     public function run(): void
     {
         $this->call([
-            ProductionLineSeeder::class
-        ]);
-
-        $this->call([
+            ProductionLineSeeder::class,
+            ProductSeeder::class,
+            QualityParameterSeeder::class,
             LotSeeder::class,
+            BatchAnalysisSeeder::class,
+            BatchAnalysisLineSeeder::class,
+            BatchAnalysisStateSeeder::class,
         ]);
     }
 }

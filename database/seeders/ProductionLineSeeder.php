@@ -12,6 +12,6 @@ class ProductionLineSeeder extends Seeder
      */
     public function run(): void
     {
-        ProductionLine::factory(2)->create();
+        ProductionLine::factory(10)->create();
     }
 }
