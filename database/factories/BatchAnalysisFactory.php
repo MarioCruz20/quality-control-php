@@ -3,21 +3,21 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\BatchAnalysis;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\BatchAnalysis>
- */
 class BatchAnalysisFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = BatchAnalysis::class;
+
     public function definition(): array
     {
         return [
-            //
+            'lot_id' => \App\Models\Lot::inRandomOrder()->first()->lot_id,
+            'isactive' => $this->faker->randomElement(['Y', 'N']),
+            'created' => now(),
+            'updated' => now(),
+            'createdby' => 1,
+            'updatedby' => 1
         ];
     }
 }

@@ -9,15 +9,19 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProductFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'code' => strtoupper($this->faker->bothify('PRD-###')),
+            'picture' => null,
+
+            'production_line_id' => \App\Models\ProductionLine::inRandomOrder()->first()->production_line_id,
+
+            'isactive' => 'Y',
+            'created' => now(),
+            'updated' => now(),
+            'createdby' => 1,
         ];
     }
 }

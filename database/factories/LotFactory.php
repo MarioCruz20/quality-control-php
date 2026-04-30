@@ -28,7 +28,7 @@ class LotFactory extends Factory
 
             'created' => now(),
             'updated' => now(),
-            'createdby' => 'admin'
+            'createdby' => 1
         ];
     }
 }
